@@ -4,7 +4,7 @@
     <a href="{{ url_for('home.index') }}" class="brand-link">
       <img src="{{ url_for("static", filename="dist/img/logo.png") }}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
            style="opacity: .8">
-      <span class="brand-text font-weight-light">JIS Erp</span>
+      <span class="brand-text font-weight-light">Gestión JIS</span>
     </a>
 
     <!-- Sidebar -->
@@ -26,18 +26,17 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-clock"></i>
               <p>
-                Gestión Tiempo
-                <i class="right fas fa-angle-left"></i>
+                Indicadores
               </p>
             </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="{{ url_for('clock_attendances.mark') }}"  class="nav-link">
-                  <i class="far fa-hourglass-half nav-icon"></i>
-                  <p>Marcas</p>
-                </a>
-              </li>
-            </ul>
+          </li>
+          <li class="nav-item has-treeview menu-close">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-clock"></i>
+              <p>
+                Microeconomico
+              </p>
+            </a>
           </li>
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
@@ -45,38 +44,10 @@
             <a href="{{ url_for('documental_management_data.index') }}/{{ current_user.rut }}" class="nav-link">
               <i class="fas fa-paste nav-icon"></i>
               <p>
-                Gestión Documental
+                Macroeconomico
               </p>
             </a>
             
-          </li>
-          
-          <li class="nav-item">
-            <a href="{{ url_for('personal_data.show') }}/{{ current_user.rut }}"  class="nav-link">
-              <i class="nav-icon fas fa-circle-user"></i>
-              <p>
-                Datos Personales
-              </p>
-            </a>
-          </li>
-          <li class="nav-item has-treeview menu-close">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-book"></i>
-              <p>
-                Documentación
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              {% for title in documentation_titles_menu %}
-                <li class="nav-item">
-                  <a href="{{ url_for('documentations.show', id=title.documentation_id) }}"  class="nav-link">
-                    <i class="fas fa-check nav-icon"></i>
-                    <p style="font-size: 12px;">{{ title.title|truncate(22) }}</p>
-                  </a>
-                </li>
-              {% endfor %}
-            </ul>
           </li>
           <li class="nav-item has-treeview menu-close">
             <a href="{{ url_for('auth.logout') }}" class="nav-link">
